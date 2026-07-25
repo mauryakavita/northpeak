@@ -52,7 +52,7 @@ NorthPeak ek modern aur responsive web agency website hai. Iska goal hai brands 
 
 ### 📸 Preview
 
-![NorthPeak Website Screenshot](Screenshot_20260725_115450_Opera.jpg)
+![NorthPeak Website Screenshot](Screenshot_20260725_115641_Opera.jpg)
 
 ### 📸 Preview
 

@@ -54,6 +54,16 @@ NorthPeak ek modern aur responsive web agency website hai. Iska goal hai brands 
 
 ![NorthPeak Website Screenshot](Screenshot_20260725_115450_Opera.jpg)
 
+### 📸 Preview
+
+**Homepage**
+![NorthPeak Homepage](Screenshot_20260725_115450_Opera.jpg)
+
+**Services Section and Admin login ** 
+![NorthPeak Services](Screenshot_20260725_115641_Opera.jpg)
+
+**🌐 Live Demo:** https://northpeak-pink.vercel.app/
+
 
 
 

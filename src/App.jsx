@@ -31,7 +31,7 @@ const handleLogout = async () => {
           <a href="#services">Services</a>
           <a href="#portfolio">Work</a>
           <a href="#about">About</a>
-          <a href="#contact" className="btn">Contact</a>
+         
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
 
     {user ? 

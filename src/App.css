@@ -8,7 +8,8 @@
 }
 
 body { 
-  color: #333; 
+  color: #f0e4e4; 
+  background-color: #171c1d;
   line-height: 1.6;
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
@@ -17,18 +18,20 @@ body {
 h2 {
   font-size: 48px;
   letter-spacing: -1px;
+  color: white;
 }
 
 h3 {
   font-size: 40px;
   text-align: center;
   margin-bottom: 20px;
+  color: whitesmoke;
 }
 
 .subtitle {
   text-align: center;
   margin-bottom: 50px;
-  color: #666;
+  color: #ecec7a;
 }
 
 /* NAVBAR */
@@ -59,7 +62,7 @@ h3 {
 }
 
 .nav-links a:hover {
-  color: rgb(45,45,250);
+  color: rgb(250, 45, 45);
 }
 
 .logo {
@@ -112,13 +115,13 @@ h3 {
 .hero {
   text-align: center;
   padding: 100px 20px;
-  background: linear-gradient(135deg,#90ffff,#a0e9ff);
+  background: linear-gradient(135deg,#1b1e1e,#868d90);
 }
 
 .hero p {
   font-size: 20px;
   margin: 20px 0 30px;
-  color: #444;
+  color: #000000;
 }
 
 /* SERVICES */
@@ -130,13 +133,16 @@ h3 {
   display: flex;
   gap: 20px;
   justify-content: center;
+  border-radius: 50%;
   flex-wrap: wrap;
   max-width: 1200px;
   margin: auto;
+  background-color: #788686;
 }
 
 .service-card {
-  background: #f0f8ff;
+  background: #2c373b;
+  color:white;
   padding: 30px;
   border-radius: 15px;
   width: 280px;
@@ -146,20 +152,20 @@ h3 {
 
 .service-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 15px 30px white;
 }
 
 .service-card h4 {
   font-size: 22px;
   margin-bottom: 10px;
-  color: rgb(45,45,250);
+  color: rgb(1, 1, 1);
 }
 
 /* PORTFOLIO */
 #portfolio {
   padding: 100px 20px;
   text-align: center;
-  background: #f9f9f9;
+  background: #6c6c5f;
 }
 
 .portfolio-grid {
@@ -172,16 +178,16 @@ h3 {
 }
 
 .portfolio-card {
-  background: #fff;
+  background: black;
   border-radius: 12px;
   overflow: hidden;
   width: 320px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px white;
   transition: all 0.3s ease;
 }
 
 .portfolio-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
@@ -201,6 +207,8 @@ h3 {
   text-align: center;
 }
 
+
+
 .about-text {
   max-width: 700px;
   margin: 30px auto;
@@ -208,11 +216,20 @@ h3 {
   line-height: 1.8;
 }
 
+
+.link{
+  color:gold;
+  padding: 100px 20px;
+  text-align: center;  
+}
+
+
+
 /* CONTACT */
 #contact {
   padding: 100px 20px;
   text-align: center;
-  background: #f9f9f9;
+  background: #373f40;
 }
 
 #contact h2 {
@@ -246,8 +263,8 @@ footer {
 
 /* BUTTON */
 .btn {
-  background: rgb(45,45,250);
-  color: white !important;
+  background: rgb(26, 38, 41);
+  color: white;
   padding: 14px 28px;
   border-radius: 8px;
   text-decoration: none;
@@ -256,12 +273,12 @@ footer {
   display: inline-block;
   border: none;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(45,45,250,0.3);
+  box-shadow: 0 8px 20px white;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(45,45,250,0.4);
+  transform: translateY(-20px);
+  box-shadow: 0 10px 20px white;
 }
 
 .btn-big {
@@ -270,7 +287,7 @@ footer {
 }
 /* GRADIENT TEXT */
 .gradient-text {
-  background: linear-gradient(90deg, rgb(45,45,250), #00d4ff);
+  background: linear-gradient(90deg, rgb(28, 28, 31), #688186);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

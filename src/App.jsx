@@ -17,7 +17,8 @@ export default function App() {
     service: '',
     budget: '',
     description: '',
-    timeline: 'flexible'
+    timeline: 'flexible',
+    paymentMethod: 'bank_transfer'
   });
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function App() {
       if(result.data.success) {
         alert('Quote request received! We will contact you soon.');
         setShowQuoteModal(false);
-        setFormData({ name: '', email: '', service: '', budget: '', description: '', timeline: 'flexible' });
+        setFormData({ name: '', email: '', service: '', budget: '', description: '', timeline: 'flexible', paymentMethod: 'bank_transfer' });
       }
     } catch (error) {
       console.error('Error:', error);
@@ -415,6 +416,22 @@ export default function App() {
                   <option value="1-2weeks">1-2 Weeks</option>
                   <option value="1month">1 Month</option>
                   <option value="2-3months">2-3 Months</option>
+                </select>
+              </div>
+
+              <div className="form-group">
+                <label>Payment Method *</label>
+                <select 
+                  value={formData.paymentMethod}
+                  onChange={(e) => setFormData({...formData, paymentMethod: e.target.value})}
+                  required
+                >
+                  <option value="bank_transfer">Bank Transfer</option>
+                  <option value="credit_card">Credit/Debit Card</option>
+                  <option value="upi">UPI</option>
+                  <option value="cheque">Cheque</option>
+                  <option value="net_banking">Net Banking</option>
+                  <option value="payment_gateway">Online Payment Gateway</option>
                 </select>
               </div>
 

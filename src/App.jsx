@@ -1,8 +1,7 @@
-
-
-import {motion} from 'framer-motion'
 import { useState, useEffect } from 'react';
-
+import { auth } from './firebase'; 
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import Login from './login';  
 
 import './App.css'
 
@@ -12,25 +11,27 @@ export default function App() {
 const [user, setUser] = useState(null);
 
 
-
+useEffect(() => {
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+}, []);
 
 const handleLogout = async () => {
   await signOut(auth);
   setMenuOpen(false); // menu band ho jaye
 };
-
-        
   return (
     <div>
       {/* NAVBAR */}
       <nav className="navbar">
-        <h1 className="logo gradient-text">My Portfolio</h1>
+        <h1 className="logo gradient-text">NorthPeak Digital</h1>
         
         <div className="nav-links">
           <a href="#services">Services</a>
           <a href="#portfolio">Work</a>
           <a href="#about">About</a>
-         
+          <a href="#contact" className="btn">Contact</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
 
     {user ? 
@@ -61,11 +62,8 @@ const handleLogout = async () => {
 
       {/* HERO SECTION */}
       <section className="hero">
-        <motion.h1 initial={{ opacity: 0 ,y: 20}} animate={{ opacity: 1, y: 0 }} transition={{ duration: 4}}>
-          Hi, I'm Kavita Maurya
-        </motion.h1>
-        <p>Web Developer</p>
-
+        <h2>We Build Digital Experiences</h2>
+        <p>Websites, Marketing & Branding</p>
         <a href="#contact" className="btn btn-big">Get Started</a>
       </section>
 
@@ -74,58 +72,47 @@ const handleLogout = async () => {
         <h3>Our Services</h3>
         <div className="services-grid">
           <div className="service-card">
-        <h4> React.js + Firebase Auth</h4>
-            <p> Designed responsive landing page with secure admin login using Firebase Authentication. Integrated REST API via FormsPree for contact form submissions .</p>
+            <h4>Web Development</h4>
+            <p>Modern responsive websites with React & Tailwind</p>
           </div>
           <div className="service-card">
-                <h4>Web development</h4>
-            <p>Modern responsive websites with React.js , Node.js ,Tailwind CSS.I build fast, clean, and user-friendly React apps that solve real problems.</p>
+            <h4>Digital Marketing</h4>
+            <p>SEO, Google Ads, Social Media Management</p>
           </div>
-            
           <div className="service-card">
-            <h4> Groq API + Llama 3 Vision</h4>
-            <p>
-               Integrated Groq API + Llama 3 Vision to solve GATE questions from uploaded images using OCR
-            </p>
+            <h4>Branding</h4>
+            <p>Logo, Identity & Complete Brand Strategy</p>
           </div>
         </div>
       </section>
 
       {/* PORTFOLIO SECTION */}
       <section id="portfolio">
-        <h3>PROJECTS</h3>
-        <p className="subtitle">Some of my recent projects</p>
+        <h3>Our Work</h3>
+        <p className="subtitle">Some of our recent projects</p>
         <div className="portfolio-grid">
           
-          <motion.div className="portfolio-card" whileHover={{ y: -10 ,scale:1.03}} transition={{ duration: 0.3 }}>
-            <img src="gate.jpeg"alt="Project 1"/>
+          <div className="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400" alt="Project 1"/>
             <div className="portfolio-info">
-              <h4>GATE MATE AI</h4>
-              <p>React.js, Node.js, Firebase, Groq API, Llama 3 Vision, TailwindCSS </p>
-           <a className='link'  href="https://agent-6a63b5e276285672664b6388--gatemateai.netlify.app/" target="_blank" rel="noopener noreferrer">
-          Live Link
-        </a>
-
+              <h4>E-commerce Website</h4>
+              <p>React + Stripe Integration</p>
             </div>
-          </motion.div>
-
-          <motion.div className="portfolio-card" whileHover={{ y: -10 ,scale:1.03}} transition={{ duration: 0.3 }}>
-            <img src="admin.jpg" alt="Project 2"/>
-            <div className="portfolio-info">
-              <h4>Northpeak</h4>
-              <p>React.js , Firebase , Groq API , Formspree , TailwindCSS </p>
-              <a className='link'  href="https://northpeak-pink.vercel.app/" target="_blank" rel="noopener noreferrer">Live Link</a>
-            </div>
-          </motion.div>
+          </div>
 
           <div className="portfolio-card">
-            <img src="weather.jpeg" alt="Project 3"/>
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400" alt="Project 2"/>
             <div className="portfolio-info">
-              <h4>Weather App</h4>
-              <p>  JavaScript, HTML, CSS, REST API </p>
-               <a className='link' href="https://mauryakavita.github.io/weather/" target="_blank" rel="noopener noreferrer">
-          Live Link
-        </a>
+              <h4>Restaurant Branding</h4>
+              <p>Logo + Website + Social Media</p>
+            </div>
+          </div>
+
+          <div className="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400" alt="Project 3"/>
+            <div className="portfolio-info">
+              <h4>Marketing Campaign</h4>
+              <p>Google Ads + SEO Results</p>
             </div>
           </div>
         </div>
@@ -133,35 +120,20 @@ const handleLogout = async () => {
 
       {/* ABOUT */}
       <section id="about">
-        <h3>About me</h3>
+        <h3>About Us</h3>
         <p className="about-text">
-           Web Developer with expertise in React.js, Node.js, and API Integration. Built AI-powered GATE
-preparation platform using Groq API and Llama 3 Vision. Experienced in REST APIs, Firebase, and
-Responsive UI. Solved 170+ DSA problems on LeetCode and CodeChef
+          We are NorthPeak Digital, a creative agency helping businesses grow online. 
+          We believe in clean design, fast websites, and results that matter.
         </p>
       </section>
 
       {/* CONTACT */}
       <section id="contact">
-        <motion.h3 whileHover={{ y: -5 }}>Hire Me</motion.h3>
-
-<div>
-    <a className='link' href="mailto:kvltmaurya@gmail.com">kvltmaurya@gmail.com</a>
-       
-       </div>
-       
-       
-        <div>
-          <a className='link' href="https://github.com/mauryakavita" target="_blank" rel="noopener noreferrer">GitHub Profile Link</a>
-         </div>
-         <div>
-<a className='link' href="https://linkedin.com/in/kavita-maurya-b951a9354" target="_blank" rel="noopener noreferrer">LinkedIn Profile Link</a>
-      
-        </div>
-        <p className="subtitle">I reply within 24 hours</p>
+        <h3>Contact Us</h3>
+        <p>Email: hello@northpeak.com</p>
+        <p className="subtitle">We reply within 24 hours</p>
         
         <h2>Let's Work Together</h2>
-
 
 
 
@@ -186,10 +158,10 @@ Responsive UI. Solved 170+ DSA problems on LeetCode and CodeChef
 
 
 </section>
-
+<Login />
       {/* FOOTER */}
       <footer>
-        <p>©Kavita Maurya</p>
+        <p>© 2026 NorthPeak Digital</p>
       </footer>
 
     </div>
